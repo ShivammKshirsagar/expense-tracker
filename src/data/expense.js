@@ -1,0 +1,42 @@
+export const expenses = [
+  {
+    id: 1,
+    title: "Groceries",
+    amount: 2450,
+    category: "Food",
+    date: "2026-01-05",
+    paymentMethod: "UPI",
+  },
+  {
+    id: 2,
+    title: "Netflix Subscription",
+    amount: 499,
+    category: "Entertainment",
+    date: "2026-01-03",
+    paymentMethod: "Card",
+  },
+  {
+    id: 3,
+    title: "Electricity Bill",
+    amount: 1860,
+    category: "Bills",
+    date: "2026-01-01",
+    paymentMethod: "UPI",
+  },
+  {
+    id: 4,
+    title: "Cab to Office",
+    amount: 320,
+    category: "Transport",
+    date: "2026-01-06",
+    paymentMethod: "Cash",
+  },
+  {
+    id: 5,
+    title: "Coffee with Friends",
+    amount: 280,
+    category: "Food",
+    date: "2026-01-04",
+    paymentMethod: "UPI",
+  },
+];
