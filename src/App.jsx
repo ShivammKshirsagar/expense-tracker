@@ -2,7 +2,8 @@
 import { Navbar } from './components/Navbar'
 import './App.css'
 import { Sidebar } from './components/Sidebar'
-import { Expense } from './components/expense'
+import { Expense } from './components/Expense'
+import { AddExpense } from './components/AddExpense'
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -12,7 +13,9 @@ function App() {
       <Navbar/>
       <div className="flex">
       <Sidebar/>
+      <div className="main-content w-full">
       <Expense/>
+      </div>
       </div>
     </>
   )

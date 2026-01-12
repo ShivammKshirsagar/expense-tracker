@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { AddExpense } from "./AddExpense";
+
 export function Expense() {
-    const expenses = [
-        {
+   const[expenses,setExpenses]= useState([
+    {
             id: 1,
             title: "Groceries",
             amount: 2450,
@@ -24,23 +27,7 @@ export function Expense() {
             date: "2026-01-01",
             paymentMethod: "UPI",
         },
-        {
-            id: 4,
-            title: "Cab to Office",
-            amount: 320,
-            category: "Transport",
-            date: "2026-01-06",
-            paymentMethod: "Cash",
-        },
-        {
-            id: 5,
-            title: "Coffee with Friends",
-            amount: 280,
-            category: "Food",
-            date: "2026-01-04",
-            paymentMethod: "UPI",
-        },
-    ];
+   ])
 
     const heading = [
         "Title",
@@ -53,6 +40,7 @@ export function Expense() {
     const gridCols = "grid grid-cols-[2fr_1fr_1.5fr_1.5fr_1fr]";
     return (
         <>
+        <AddExpense setExpenses={setExpenses} />
             <div className="expense-list w-full m-4 border-4 rounded-lg border-[#fafafa]">
                 <div className={`headings ${gridCols} p-3 font-semibold `}>
                     {heading.map((headings) => {
@@ -66,7 +54,7 @@ export function Expense() {
                 <div className={`list  p-3`}>
                     {expenses.map((expense) => {
                         return (
-                            <div key={expense.id} className={`flex ${gridCols}  odd:bg-gray-50 justify-between items-center`}>
+                            <div key={expense.id} className={`${gridCols}  odd:bg-gray-50 justify-between items-center`}>
                                 <span>{expense.title}</span>
                                 <span>${expense.amount}</span>
                                 <span >{expense.category}</span>
