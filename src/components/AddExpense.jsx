@@ -24,6 +24,10 @@ export function AddExpense({ setExpenses }) {
 
     function submit(e) {
         e.preventDefault();
+        if((!form.title || !form.amount)){
+            return;
+        }
+
 
         setExpenses((prev)=>[
             ...prev,
@@ -35,7 +39,7 @@ export function AddExpense({ setExpenses }) {
 
         setForm({
             title: "",
-            amount: 0,
+            amount: "",
             category: "",
             date: "",
             paymentMethod: ""

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { AddExpense } from "./AddExpense";
 
 export function Expense() {
-   const[expenses,setExpenses]= useState([
-    {
+    const [expenses, setExpenses] = useState([
+        {
             id: 1,
             title: "Groceries",
             amount: 2450,
@@ -27,7 +27,7 @@ export function Expense() {
             date: "2026-01-01",
             paymentMethod: "UPI",
         },
-   ])
+    ])
 
     const heading = [
         "Title",
@@ -37,10 +37,22 @@ export function Expense() {
         "Payment Method",
     ]
 
+    function handleDelete(id) {
+        setExpenses((prev) => prev.filter((expense) => expense.id != id));
+    }
+
+    const totalExpense = expenses.reduce((total,expense)=>{
+            return total+expense.amount;
+        },0)
+    
+
     const gridCols = "grid grid-cols-[2fr_1fr_1.5fr_1.5fr_1fr]";
     return (
         <>
-        <AddExpense setExpenses={setExpenses} />
+            <div className="flex items-center justify-around">
+                <h2>Total Expense: ${totalExpense}</h2>
+                <AddExpense setExpenses={setExpenses} />
+            </div>
             <div className="expense-list w-full m-4 border-4 rounded-lg border-[#fafafa]">
                 <div className={`headings ${gridCols} p-3 font-semibold `}>
                     {heading.map((headings) => {
@@ -54,13 +66,16 @@ export function Expense() {
                 <div className={`list  p-3`}>
                     {expenses.map((expense) => {
                         return (
-                            <div key={expense.id} className={`${gridCols}  odd:bg-gray-50 justify-between items-center`}>
-                                <span>{expense.title}</span>
-                                <span>${expense.amount}</span>
-                                <span >{expense.category}</span>
-                                <span>{expense.date}</span>
-                                <span>{expense.paymentMethod}</span>
-                            </div>
+                            <>
+                                <div key={expense.id} className={`${gridCols}  odd:bg-gray-50 justify-between items-center`}>
+                                    <span>{expense.title}</span>
+                                    <span>${expense.amount}</span>
+                                    <span >{expense.category}</span>
+                                    <span>{expense.date}</span>
+                                    <span>{expense.paymentMethod}</span>
+                                    <button onClick={() => handleDelete(expense.id)} className="cursor-pointer">Delete</button>
+                                </div>
+                            </>
                         )
                     })}
                 </div>
