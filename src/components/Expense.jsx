@@ -35,6 +35,7 @@ export function Expense() {
         "Category",
         "Date",
         "Payment Method",
+        "Action"
     ]
 
     function handleDelete(id) {
@@ -46,11 +47,12 @@ export function Expense() {
         },0)
     
 
-    const gridCols = "grid grid-cols-[2fr_1fr_1.5fr_1.5fr_1fr]";
+    const gridCols ="grid grid-cols-[2fr_1fr_1.5fr_1.5fr_1fr_0.8fr]";
+
     return (
         <>
             <div className="flex items-center justify-around">
-                <h2>Total Expense: ${totalExpense}</h2>
+                <h2 className="font-poppins text-lg font-semibold px-6 py-4 bg-gray-50 rounded-xl shadow-sm">Total Expense: ₹{totalExpense}</h2>
                 <AddExpense setExpenses={setExpenses} />
             </div>
             <div className="expense-list w-full m-4 border-4 rounded-lg border-[#fafafa]">
@@ -63,17 +65,17 @@ export function Expense() {
 
                 </div>
 
-                <div className={`list  p-3`}>
+                <div className="list  p-2">
                     {expenses.map((expense) => {
                         return (
                             <>
-                                <div key={expense.id} className={`${gridCols}  odd:bg-gray-50 justify-between items-center`}>
+                                <div key={expense.id} className={`${gridCols}  odd:bg-gray-50 justify-between items-center p-2  rounded-lg`}>
                                     <span>{expense.title}</span>
-                                    <span>${expense.amount}</span>
+                                    <span>₹{expense.amount}</span>
                                     <span >{expense.category}</span>
                                     <span>{expense.date}</span>
                                     <span>{expense.paymentMethod}</span>
-                                    <button onClick={() => handleDelete(expense.id)} className="cursor-pointer">Delete</button>
+                                    <button onClick={() => handleDelete(expense.id)} className="cursor-pointer border p-1 w-[60%] rounded-2xl bg-red-500 hover:bg-red-600 text-white font-semibold">Delete</button>
                                 </div>
                             </>
                         )

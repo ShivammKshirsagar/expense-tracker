@@ -9,11 +9,11 @@ export function Sidebar() {
 
     return (
         <>
-            <div className="sidebar p-4 w-64 h-lvh bg-[#fafafafa]">
-                <ul className="flex flex-col gap-4 items-center">
+            <div className="sidebar p-4 w-64 border-0 h-lvh bg-[#fafafafa]">
+                <ul className="flex flex-col gap-5 items-center mt-6">
                     {menuItems.map((item) => {
                         return (
-                            <li key={item} className="cursor-pointer hover:bg-blue-50 transition rounded-md">
+                            <li key={item} className="font-poppins font-semibold text-black h-full w-[60%] text-center border-0 rounded-2xl p-2 bg-gray-200 cursor-pointer hover:bg-blue-50 transition">
                                 {item}
                             </li>
                         )
